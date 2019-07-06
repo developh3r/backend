@@ -1,5 +1,7 @@
 <?php
-        
+     header('Access-Control-Allow-Origin: *');
+     header('Content-Type:  multipart/form-data');
+       
 
     include('config.php');
     echo $_POST['email'].'-test';
