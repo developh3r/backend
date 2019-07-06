@@ -1,6 +1,6 @@
     
 <?php
-$con= mysqli_connect("localhost","root","","harrier_db");
+$con= mysqli_connect("localhost","admin","merlin&$!*","harrier_db");
 //$con11 = mysqli_connect("localhost","root","","dimeconnect_portal");
 // Check connection
 if (mysqli_connect_errno())
