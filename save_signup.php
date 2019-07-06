@@ -20,6 +20,13 @@
                     if($rownum_get==0)
                     {
                         $user_id='0000001';
+                         // convert form data to json format
+                        $postArray = array(
+                            "phrase_id" => 0000001
+                        ); //you might need to process any other post fields you have..
+                        
+                        echo json_encode( $postArray ); 
+                        
                        
                     }
                     else
@@ -27,6 +34,13 @@
                         $row_get=mysqli_fetch_assoc($get);
                         $id=$row_get['user_id']+1;
                         $user_id=str_pad($id, 7, '0', STR_PAD_LEFT);
+
+                          // convert form data to json format
+                          $postArray = array(
+                            "phrase_id" => $user_id
+                        ); //you might need to process any other post fields you have..
+                        
+                        echo json_encode( $postArray ); 
                     }
 
                     $query=mysqli_query($con,"INSERT INTO tbluser (id,name,email,user_id,datetime) VALUES ('','".$_POST['name']."','".$_POST['email']."','".$user_id."','".date('Y-m-d H:i:s')."')");
