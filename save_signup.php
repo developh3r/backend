@@ -2,9 +2,9 @@
         
 
     include('config.php');
-    
+    echo $_POST['email'].'-test';
         //check if existing
-        $check=mysqli_query($con,"SELECT * from tbluser where email='".$_POST['email']."'");
+       /* $check=mysqli_query($con,"SELECT * from tbluser where email='".$_POST['email']."'");
             $numrow=mysqli_num_rows($check);
             if($numrow<>0)
             {
@@ -45,6 +45,6 @@
                     header('Location:https://mirrorbackend.milkylorejo.com/save_signup_display.php?user_id='.$_GET['user_id'].'');
                     
             }
-        
+        */
     
 ?>
