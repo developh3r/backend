@@ -1,6 +1,6 @@
 <?php
-    $fh = fopen( 'random_phrase.json', 'w' );
-    fclose($fh);
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
 
     include('config.php');
     $query=mysqli_query($con,"SELECT * FROM tblphrase ORDER BY RAND() LIMIT 1;");
@@ -12,5 +12,5 @@
             "phrase" => $row['phrase']
         ); //you might need to process any other post fields you have..
         
-        echo json_encode( $postArray );
+        echo json_encode( $postArray ); 
 ?>
