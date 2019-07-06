@@ -1,6 +1,5 @@
 <?php
-        header('Access-Control-Allow-Origin: *');
-        header('Content-Type: application/json');
+        
 
     include('config.php');
     
@@ -42,15 +41,9 @@
                     //save login to tbllogin
                     $save_login=mysqli_query($con,"INSERT INTO tbllogin (id,email,password,user_id,datetime) values ('','".$row_get['email']."','".md5($_POST['password'])."','".$row_get['user_id']."','".date('Y-m-d H:i:s')."')");
             
-                    //redirect
-                     // convert form data to json format
-                    $postArray = array(
-                        "email" => $row_get['email'],
-                        "name" => $row_get['name'],
-                        "user_id" => $row_get['user_id']
-                    ); //you might need to process any other post fields you have..
+                    //redirect to display and pass the data
+                    header('Location:https://mirrorbackend.milkylorejo.com/save_signup_display.php?user_id='.$_GET['user_id'].'');
                     
-                    echo json_encode( $postArray ); 
             }
         
     
