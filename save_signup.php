@@ -1,8 +1,8 @@
 <?php
-     header('Access-Control-Allow-Origin: *');
-     header('Content-Type:  multipart/form-data');
-       
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
 
+    $_POST = json_decode(file_get_contents("php://input"),true);
     include('config.php');
     
         //check if existing
@@ -10,12 +10,7 @@
             $numrow=mysqli_num_rows($check);
             if($numrow<>0)
             {
-                ?>
-                <script>
-                    alert("Email already used. Please use different email.");
-                    window.history.back();
-                </script>
-            <?php
+               echo "Email already exist";
             }
             else
             {
@@ -34,7 +29,7 @@
                         $user_id=str_pad($id, 7, '0', STR_PAD_LEFT);
                     }
 
-                    $query=mysqli_query($con,"INSERT INTO tbluser (id,name,email,user_id,datetime) VALUES ('','".$_POST['name']."','".$_POST['email']."','".$useri_id."','".date('Y-m-d H:i:s')."')");
+                    $query=mysqli_query($con,"INSERT INTO tbluser (id,name,email,user_id,datetime) VALUES ('','".$_POST['name']."','".$_POST['email']."','".$user_id."','".date('Y-m-d H:i:s')."')");
             
                     //get user id to restore in tbllogin
                     $get_user=mysqli_query($con,"SELECT * FROM tbluser where email='".$_POST['email']."'");
