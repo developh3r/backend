@@ -4,9 +4,8 @@
        
 
     include('config.php');
-    echo $_POST['email'].'-test';
         //check if existing
-       /* $check=mysqli_query($con,"SELECT * from tbluser where email='".$_POST['email']."'");
+        $check=mysqli_query($con,"SELECT * from tbluser where email='".$_POST['email']."'");
             $numrow=mysqli_num_rows($check);
             if($numrow<>0)
             {
@@ -44,9 +43,9 @@
                     $save_login=mysqli_query($con,"INSERT INTO tbllogin (id,email,password,user_id,datetime) values ('','".$row_get['email']."','".md5($_POST['password'])."','".$row_get['user_id']."','".date('Y-m-d H:i:s')."')");
             
                     //redirect to display and pass the data
-                    header('Location:https://mirrorbackend.milkylorejo.com/save_signup_display.php?user_id='.$_GET['user_id'].'');
+                    header('Location:https://mirrorbackend.milkylorejo.com/save_signup_display.php?user_id='.$row_get['user_id'].'');
                     
             }
-        */
+        
     
 ?>
